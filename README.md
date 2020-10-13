@@ -1,2 +1,2 @@
-# Panteon-Demo-Game
+# Rise Guys
  Demo project
