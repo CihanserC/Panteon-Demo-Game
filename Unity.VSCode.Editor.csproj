@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{38BDCFA6-343B-BBC2-6EF0-C1092BEA7ADE}</ProjectGuid>
+    <ProjectGuid>{DC556160-A4FC-92C2-B40A-D27186837688}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.VSCode.Editor</AssemblyName>
@@ -270,7 +270,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/User/Desktop/Panteon-Demo-Game/Panteon-Demo-Game/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/User/Documents/GitHub/Rise Guys/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -629,19 +629,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{485F087F-F2A0-8742-726C-B4314D81859C}</Project>
+      <Project>{FA83604B-EC02-4414-1A5B-499BE34C6752}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{E146A618-C196-240A-5FF7-97F10F0204E4}</Project>
+      <Project>{23EAF787-CFEE-5103-9D6C-8CC68101010D}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{E3BBF0E3-CDD9-2F3F-1AB4-B9EFF784A682}</Project>
+      <Project>{CA55028D-295F-140D-8B07-3B6301D67BDE}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{CF029749-816C-2EC0-4B3E-6E193C17BEC8}</Project>
+      <Project>{8E2D5885-FD0F-647C-FD65-B0503FBE8394}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

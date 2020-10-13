@@ -7,6 +7,8 @@ namespace Movement
     [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
+        Animator animator;
+
 
         public float rotationRate = 10;
         #region PUBLIC FIELDS
@@ -14,11 +16,9 @@ namespace Movement
         [Header("Walk / Run Setting")] public float walkSpeed;
         public float runSpeed;
 
-        //[Header("Jump Settings")] public float playerJumpForce;
         public ForceMode appliedForceMode;
 
 
-        //[Header("Jumping State")] public bool playerIsJumping;
 
         [Header("Current Player Speed")] public float currentSpeed;
 
@@ -40,16 +40,9 @@ namespace Movement
         private int m_groundLayerMask;
         private float m_distanceFromPlayerToGround;
         private bool m_playerIsGrounded;
-        //private bool m_playerJumpStarted;
         #endregion
 
 
-        //#region jump presets
-
-        //private const int MaxAllowJump = 2; //maximum allowed jumps
-       // private int m_currentNumberOfJumpsMade; //current number of jumps processed
-
-        //#endregion
 
         #region MONODEVELOP ROUTINES
 
@@ -67,11 +60,8 @@ namespace Movement
 
             #endregion
 
-            //#region jump press initiated
-
-            //m_playerJumpStarted = true;
-
-            //#endregion
+            animator = GetComponent<Animator>();
+            Debug.Log(animator);
         }
 
         private void Update()
@@ -79,7 +69,9 @@ namespace Movement
             #region controller Input [horizontal | vertical ] movement
 
             m_xAxis = Input.GetAxis("Horizontal");
-            m_zAxis = Input.GetAxis("Vertical");
+            //m_xAxis = 10;
+            //m_zAxis = Input.GetAxis("Vertical");
+            m_zAxis = 1;
 
             #endregion
 
@@ -89,9 +81,9 @@ namespace Movement
 
             #endregion
 
-           // #region play jump input
-
-            //playerIsJumping = Input.GetKeyDown(KeyCode.Space);
+            
+           animator.SetFloat("Speed", 1.0f);
+          
 
             #endregion
 
@@ -122,55 +114,17 @@ namespace Movement
             #region move player
 
             m_rb.MovePosition(transform.position + Time.deltaTime * currentSpeed *
-                transform.TransformDirection(0f, 0f, m_zAxis));
+                transform.TransformDirection(0f, 0f, m_zAxis)); // m_zAxis gives the constant velocity.
 
             m_rb.MoveRotation( Quaternion.Euler(m_rb.rotation.eulerAngles + new Vector3(0f, rotationRate * Input.GetAxis("Mouse X"), 0f)));
 
             #endregion
 
-            //#region apply single / double jump
 
             m_playerIsGrounded = m_distanceFromPlayerToGround <= 1f;
 
-            //if (playerIsJumping && m_playerJumpStarted &&
-            //(m_playerIsGrounded || MaxAllowJump > m_currentNumberOfJumpsMade)) StartCoroutine(ApplyJump());
-
-            //if (m_playerIsGrounded) m_currentNumberOfJumpsMade = 0;
-
-            // #endregion
         }
 
-       // #endregion
-
-        //#region HELPER ROUTINES
-        /// <summary>
-        /// applies force in the upward direction
-        /// using jump force and supplied force mode
-        /// </summary>
-        /// <param name = "jumpForce" ></ param >
-        /// < param name="forceMode"></param>
-        //private void PlayerJump(float jumpForce, ForceMode forceMode)
-        //{
-        //    m_rb.AddForce(jumpForce * m_rb.mass * Time.deltaTime * Vector3.up, forceMode);
-        //}
-
-
-        /// <summary>
-        /// handles single and double jump
-        /// waits until space bar pressed is terminated before
-        /// next jump is initiated.
-        /// </summary>
-        /// <returns></returns>
-        //private IEnumerator ApplyJump()
-        //{
-        //    PlayerJump(playerJumpForce, appliedForceMode);
-        //    m_playerIsGrounded = false;
-        //    m_playerJumpStarted = false;
-        //    yield return new WaitUntil(() => !playerIsJumping);
-        //    ++m_currentNumberOfJumpsMade;
-        //    m_playerJumpStarted = true;
-        //}
-
-        //#endregion
+      
     }
 }
