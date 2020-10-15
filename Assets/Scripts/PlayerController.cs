@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using UnityEditor.UIElements;
+//using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Movement
@@ -9,25 +9,19 @@ namespace Movement
     {
         Animator animator;
 
-
         public float rotationRate = 10;
         #region PUBLIC FIELDS
-
         [Header("Walk / Run Setting")] public float walkSpeed;
         public float runSpeed;
-
         public ForceMode appliedForceMode;
 
 
 
         [Header("Current Player Speed")] public float currentSpeed;
-
         [Header("Ground LayerMask name")] public string groundLayerMask;
-
         [Header("Raycast Distance")] public float raycastDistance;
 
         #endregion
-
 
         #region PRIVATE FIELDS
 

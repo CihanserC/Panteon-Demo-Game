@@ -31,16 +31,22 @@ public class PlayerCollision : MonoBehaviour
     {
         if (col.tag.Equals("Finish") )
         {
-                    WinUI.SetActive(true);
-            Player.GetComponent<PlayerController>().enabled = false;
+            WinUI.SetActive(true);
+            Player.GetComponent<PController>().enabled = false;
             Player.GetComponent<Animator>().enabled = false;
             PaintWall.SetActive(true);
         }
 
-        else if (col.tag.Equals("Obstacle"))
+        if (col.tag.Equals("Obstacle"))
         {
             Debug.Log("Retry!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (col.tag.Equals("Rotator"))
+        {
+            Debug.Log("Rotator hit to Player!");
+            PlayerRigidbody.AddForce( PlayerRigidbody.transform.forward *10);
         }
     }
 }

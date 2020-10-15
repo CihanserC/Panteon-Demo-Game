@@ -17,7 +17,7 @@ public class PaintEffect : MonoBehaviour
     void Update()
     {
         var mousePos = Input.mousePosition;
-        mousePos.z = 1;
+        mousePos.z = 0.4f;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
         if(isPressed == true)
