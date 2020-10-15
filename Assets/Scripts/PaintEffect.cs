@@ -7,6 +7,7 @@ public class PaintEffect : MonoBehaviour
     public GameObject maskPrefab;
     private bool isPressed = false; 
 
+    public 
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +34,18 @@ public class PaintEffect : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //Invoke("reveal",10);
+            //Invoke("",11);
             isPressed = true;
         }else if (Input.GetMouseButtonUp(0))
         {
             isPressed = false;
 
         }
+    }
+
+    void ShowWinUI()
+    {
+        
     }
 
     void reveal()

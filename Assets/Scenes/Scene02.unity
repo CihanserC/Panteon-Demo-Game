@@ -873,6 +873,7 @@ MonoBehaviour:
   PlayerRigidbody: {fileID: 219283435}
   Player: {fileID: 219283432}
   PaintWall: {fileID: 2039004914}
+  isWin: 0
 --- !u!114 &219283438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,7 +1831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002413340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85f456072909bc4180490876831ab49, type: 3}
   m_Name: 
@@ -2369,7 +2370,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5789dafccce9fd341b5a6f2f3f7315c2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5789dafccce9fd341b5a6f2f3f7315c2,
         type: 3}

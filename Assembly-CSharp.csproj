@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimationStateController.cs" />
+    <Compile Include="Assets\Scripts\CameraAnim.cs" />
     <Compile Include="Assets\Scripts\DragObject.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />

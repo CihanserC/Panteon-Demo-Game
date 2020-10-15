@@ -19,8 +19,7 @@ public class PController : MonoBehaviour
     private float _newXPos;
     private float _startPos;
 
-    public float distance = 1.0f;
-
+    //public float distance = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,7 @@ public class PController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         //m_xAxis = Input.GetAxis("Horizontal");
         animator = GetComponent<Animator>();
-        animator.SetFloat("Speed", 1.0f);
+        //animator.SetFloat("Speed", 1.0f);
         _startPos = transform.position.x;
     }
 
@@ -42,22 +41,32 @@ public class PController : MonoBehaviour
         //    //    _playerXvalue , _startPos + _clampvalues.x , _startPos + _clampvalues.y);
         //}
 
+        var forwardVector = new Vector3(0, 0, 1);
+        playerRb.velocity = forwardVector.normalized * _forwardSpeed;
+
         if (Input.GetMouseButton(0) )
         {
             //_newXPos= transform.position.x + Input.GetAxis("Mouse X") * Time.deltaTime ;
 
             _newXPos = Mathf.Clamp(transform.position.x + Input.GetAxis("Mouse X") *
-                _playerXvalue , _startPos + _clampvalues.x , _startPos + _clampvalues.y);
+            _playerXvalue, _startPos + _clampvalues.x, _startPos + _clampvalues.y);
 
-             //_newXPos = transform.position.x + Input.GetAxis("Mouse X");
+
+            //playerRb.AddForce(sidewayforce * Time.deltaTime, 0, 0,ForceMode.VelocityChange);
+
+            //var sidewardsVector = new Vector3(1 * Input.GetAxis("Mouse X") * sidewayforce, 0, 1);
+            //playerRb.velocity = sidewardsVector.normalized * _forwardSpeed;
+
+
+            //_newXPos = transform.position.x + Input.GetAxis("Mouse X");
+
+
 
             //Vector3 mousePosition = Input.mousePosition;
             //mousePosition.x = distance;
             //playerRb.transform.position = Camera.main.ScreenToWorldPoint(mousePosition).x;
         }
 
-        //Debug.Log("Mouse X:"+Input.GetAxis("Mouse X"));
-        //Debug.Log("_newXPos" + _newXPos);
 
         
     }
@@ -66,18 +75,17 @@ public class PController : MonoBehaviour
     {
 
         //Vector3 playerPos = new Vector3(Mathf.Lerp(transform.position.x, _newXPos, _lerpSpeed * Time.fixedDeltaTime),
-        //     playerRb.velocity.y, transform.position.z + _forwardSpeed * Time.fixedDeltaTime);
+        //playerRb.velocity.y, transform.position.z + _forwardSpeed * Time.fixedDeltaTime);
 
-       
+
         playerRb.MovePosition(new Vector3(Mathf.Lerp
-             (transform.position.x, _newXPos, _lerpSpeed * Time.fixedDeltaTime),
-             playerRb.velocity.y, transform.position.z + _forwardSpeed * Time.fixedDeltaTime));
+        (transform.position.x, _newXPos, _lerpSpeed * Time.fixedDeltaTime),
+        playerRb.velocity.y, transform.position.z + _forwardSpeed * Time.fixedDeltaTime));
 
         //playerRb.MovePosition(new Vector3(0, 0, transform.position.z + _forwardSpeed * Time.fixedDeltaTime));
         //playerRb.MovePosition(transform.position + Time.deltaTime * currentSpeed *
 
-        //transform.TransformDirection(0f, 0f, m_zAxis)); // m_zAxis gives the constant velocity.
-        //playerRb.MoveRotation(Quaternion.Euler(playerRb.rotation.eulerAngles + new Vector3(0f, rotationRate * Input.GetAxis("Mouse X"), 0f)));
+
 
     }
 }
