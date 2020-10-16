@@ -21,7 +21,7 @@ public class OpponentController : MonoBehaviour
         girlRb = GetComponent<Rigidbody>();
         //m_xAxis = Input.GetAxis("Horizontal");
         animator = GetComponent<Animator>();
-        animator.SetFloat("Speed", 1.0f);
+        //animator.SetFloat("Speed", 1.0f);
         _startPos = transform.position.x;
     }
 
