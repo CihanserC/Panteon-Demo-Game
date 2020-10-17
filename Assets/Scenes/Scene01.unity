@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSpeed: 3
   _forwardSpeed: 5
-  _lerpSpeed: 5
+  _lerpSpeed: 20
   _playerXvalue: 5
   _clampvalues: {x: -8, y: 8}
   playerRb: {fileID: 219283435}
@@ -5700,7 +5700,7 @@ PrefabInstance:
     - target: {fileID: 520497021017861398, guid: 810c6231b82e43f4288498965303ced1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 520497021017861398, guid: 810c6231b82e43f4288498965303ced1,
         type: 3}
