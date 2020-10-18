@@ -6,14 +6,12 @@ public class CameraAnim : MonoBehaviour
 {
     Animator m_CameraAnimator;
     public GameObject Camera;
-
     public PlayerCollision playerCol;
+
     // Start is called before the first frame update
     void Start()
     {
         m_CameraAnimator = Camera.GetComponent<Animator>();
-
-
     }
 
     // Update is called once per frame
@@ -22,10 +20,6 @@ public class CameraAnim : MonoBehaviour
         if (playerCol.isWin == true)
         {
             m_CameraAnimator.SetBool("isWin", true);
-
-            //m_CameraAnimator["VCam01"].wrapMode = WrapMode.Once;
-            //m_CameraAnimator.Play("VCam01");
-
         }
     }
 }

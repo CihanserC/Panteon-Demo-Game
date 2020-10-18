@@ -2,32 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Movement;
+//using Movement;
 using UnityEngine.SceneManagement;
 
 
 public class PlayerCollision : MonoBehaviour
 {
 
-    Animator animator;
     public GameObject WinUI;
     public Rigidbody PlayerRigidbody;
     public GameObject Player;
     public GameObject PaintWall;
 
     public bool isWin = false;
-    //******
     Animator m_Animator;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         m_Animator = Player.GetComponent<Animator>();
         //bool m_Win;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -55,13 +51,15 @@ public class PlayerCollision : MonoBehaviour
             Player.GetComponent<PController>().enabled = false;
             PlayerRigidbody.velocity = new Vector3(0, 0, -2); // For player's head must not be in the wall.
 
-            //PlayerRigidbody.AddForce(0,0,-50);
         }
 
         if (col.tag.Equals("Rotator"))
         {
             Debug.Log("Rotator hit to Player!");
-            PlayerRigidbody.AddForce( PlayerRigidbody.transform.forward *10);
+            Player.GetComponent<PController>().enabled = false;
+            PlayerRigidbody.AddForce(transform.forward * 100);
+            Player.GetComponent<PController>().enabled = true;
+
         }
     }
 

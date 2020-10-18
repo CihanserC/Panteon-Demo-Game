@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - HorizontalObstacle
   - Rotator
+  - Opponent
   layers:
   - Default
   - TransparentFX

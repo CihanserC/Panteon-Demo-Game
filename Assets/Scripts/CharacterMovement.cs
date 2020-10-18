@@ -6,7 +6,6 @@ public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private float MaxSpeed = 18;
 
-    // Update is called once per frame
     public Vector3 GetMovement(Vector3 direction)
     {
         return direction * MaxSpeed * Time.deltaTime;
