@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 //using Movement;
 using UnityEngine.SceneManagement;
-
+using Cinemachine;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -12,16 +12,16 @@ public class PlayerCollision : MonoBehaviour
     public GameObject WinUI;
     public Rigidbody PlayerRigidbody;
     public GameObject Player;
-    public GameObject PaintWall;
 
     public bool isWin = false;
     Animator m_Animator;
 
+    public RagDollEnabler ragDoll;
 
     void Start()
     {
         m_Animator = Player.GetComponent<Animator>();
-        //bool m_Win;
+        ragDoll = Player.GetComponent<RagDollEnabler>();
     }
 
     void Update()
@@ -33,10 +33,9 @@ public class PlayerCollision : MonoBehaviour
     {
         if (col.tag.Equals("Finish") )
         {
-            //WinUI.SetActive(true);
-            Player.GetComponent<PController>().enabled = false;
+            WinUI.SetActive(true);
+            Player.GetComponent<PlayerController>().enabled = false;
             //Player.GetComponent<Animator>().enabled = false;
-            PaintWall.SetActive(true);
 
             m_Animator.SetBool("Win", true);
             isWin = true;
@@ -45,11 +44,17 @@ public class PlayerCollision : MonoBehaviour
         if (col.tag.Equals("Obstacle"))
         {
             Debug.Log("Retry!");
-            m_Animator.SetBool("Crash", true);
+            //m_Animator.SetBool("Crash", true);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Invoke("PlayAgain",3);
-            Player.GetComponent<PController>().enabled = false;
-            PlayerRigidbody.velocity = new Vector3(0, 0, -2); // For player's head must not be in the wall.
+            Player.GetComponent<PlayerController>().enabled = false;
+            ragDoll.EnableRagdoll(new Vector3(0,0,0));
+            //PlayerRigidbody.velocity = new Vector3(0, 0, -2); // For player's head must not be in the wall.
+            //Invoke("playerCollider", 0.5f); // it is for optimizing fall animation when player hit the obstacle.
+            var vcam = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera;
+
+            vcam.Follow = null;
+            vcam.LookAt = null;
 
         }
 
@@ -61,6 +66,22 @@ public class PlayerCollision : MonoBehaviour
             Player.GetComponent<PController>().enabled = true;
 
         }
+
+    
+
+    }
+    public void playerCollider() { // change player's capsule collider's height
+
+        CapsuleCollider PlayerCol = transform.GetComponent<CapsuleCollider>();
+        PlayerCol.height = 0.8f;
+
+    }
+
+
+
+    public void checkSideWalls()
+    {
+      
     }
 
     public void PlayAgain()

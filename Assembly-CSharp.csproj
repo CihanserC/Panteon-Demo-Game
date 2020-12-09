@@ -47,6 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2019.4.12f1</UnityVersion>
@@ -66,14 +67,23 @@
     <Compile Include="Assets\Scripts\CameraAnim.cs" />
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\GirlController.cs" />
     <Compile Include="Assets\Scripts\MovingObstacle.cs" />
-    <Compile Include="Assets\Scripts\OpponentCollision.cs" />
-    <Compile Include="Assets\Scripts\OpponentController.cs" />
     <Compile Include="Assets\Scripts\PController.cs" />
-    <Compile Include="Assets\Scripts\PaintEffect.cs" />
     <Compile Include="Assets\Scripts\PlayerCollision.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\RagDollEnabler.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <None Include="Assets\3rd Party\20 Logos PSD\Fonts\chunkfiveex\SIL Open Font License 1.1.txt" />
+    <None Include="Assets\3rd Party\Art\Fonts\ApacheLicense2.0.txt" />
+    <None Include="Assets\3rd Party\20 Logos PSD\Fonts\kaushanscript\SIL Open Font License.txt" />
+    <None Include="Assets\3rd Party\20 Logos PSD\Fonts\peacesans\FREE FONT LICENSE.txt" />
+    <None Include="Assets\3rd Party\Font Pack\Font Pack\square-deal\readme.txt" />
+    <None Include="Assets\3rd Party\20 Logos PSD\Fonts\molot\molot-eula.txt" />
+    <None Include="Assets\3rd Party\20 Logos PSD\Fonts\Read Me.txt" />
+    <None Include="Assets\3rd Party\Font Pack\Font Pack\square-deal\license.txt" />
+    <None Include="Assets\3rd Party\Font Pack\Font Pack\avenger\avenger.txt" />
+    <None Include="Assets\3rd Party\Font Pack\Font Pack\hammerhead\readme.txt" />
+    <None Include="Assets\3rd Party\20 Logos PSD\Fonts\firasansheavy\SIL Open Font License.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

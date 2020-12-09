@@ -9,6 +9,7 @@ TagManager:
   - HorizontalObstacle
   - Rotator
   - Opponent
+  - LeftWall
   layers:
   - Default
   - TransparentFX

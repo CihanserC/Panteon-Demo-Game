@@ -36,7 +36,7 @@ public class PController : MonoBehaviour
         var forwardVector = new Vector3(0, 0, 1);
         playerRb.velocity = forwardVector.normalized * _forwardSpeed;
 
-        if (Input.GetMouseButton(0) )
+        if (Input.GetMouseButton(0))
         {
             _newXPos = Mathf.Clamp(transform.position.x + Input.GetAxis("Mouse X") *
             _playerXvalue, _startPos + _clampvalues.x, _startPos + _clampvalues.y);

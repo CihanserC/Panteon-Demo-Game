@@ -17,9 +17,6 @@ public class CameraAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerCol.isWin == true)
-        {
-            m_CameraAnimator.SetBool("isWin", true);
-        }
+
     }
 }
