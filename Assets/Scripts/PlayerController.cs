@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _forwardSpeed = 5f;
+    [SerializeField] float _horizontalSpeed = 5f;
+
     public Rigidbody playerRb;
 
     private float firstPosition;
     private float lastPosition;
-
     private bool LeftWallLimit =  false;
     private bool RightWallLimit = false;
-
 
 
     // Start is called before the first frame update
@@ -45,16 +45,6 @@ public class PlayerController : MonoBehaviour
 
         // Keyboard controls for Player
 
-        if (Input.GetKey(KeyCode.A) && LeftWallLimit==false)
-        {
-            transform.position += Vector3.left * Time.deltaTime * _forwardSpeed;
-        }
-        else if (Input.GetKey(KeyCode.D) && RightWallLimit==false)
-        {
-            transform.position += Vector3.right * Time.deltaTime * _forwardSpeed;
-
-        }
-
         // Mouse control for Player. It will be converted to touch controls for smart phones.
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,27 +58,39 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetMouseButton(0))
         {
+         
             lastPosition = Input.mousePosition.x;
-        }
-        if(firstPosition > lastPosition)
-        {
-            float x = ((firstPosition - lastPosition) / Screen.width) * 10;
+            
+            float x = ((lastPosition - firstPosition) / Screen.width) ;
+
+            float difference = (lastPosition - firstPosition);
+
+            Debug.Log("Diff:"+difference);
+            Debug.Log(firstPosition + " | " + lastPosition);
 
             if (LeftWallLimit == false)
             {
-                transform.position += Vector3.left * x * Time.deltaTime * _forwardSpeed;
-            }
-        }
-        else if (firstPosition < lastPosition)
-        {
-            float x = ((lastPosition - firstPosition) / Screen.width) * 10;
+                if (difference < -100)
+                {
+                    transform.position += Vector3.right * x * Time.deltaTime * _horizontalSpeed;
 
-            if (RightWallLimit==false)
+                }
+            }
+
+            if (RightWallLimit == false)
             {
-                transform.position += Vector3.right * x * Time.deltaTime * _forwardSpeed;
+
+                if (difference > 100)
+                {
+                    transform.position += Vector3.right * x * Time.deltaTime * _horizontalSpeed;
+                }
+
             }
 
+
         }
+ 
+        
     }
 
 }

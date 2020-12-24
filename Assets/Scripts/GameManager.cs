@@ -10,17 +10,25 @@ public class GameManager : MonoBehaviour
     GameObject finishline;
     private bool isPaused = false;
     public GameObject PauseMenu;
-
     //public GameObject WinMenu;
 
-    [System.Obsolete]
+    private void Start()
+    {
+        Application.targetFrameRate = 60 ;  
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("You quit!");
+        //FindObjectOfType<MainMenu>().Quitgame();
+        Application.Quit();
+    }
+    
     public void PlayAgain()
     {
         //Debug.Log("Retry!");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Application.LoadLevel(Application.loadedLevel);
-
     }
 
     public void Play() // For play button
@@ -34,17 +42,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Debug.Log("Go to main menu!");
         SceneManager.LoadScene("Menu");
-
-    }
-
-    [System.Obsolete]
-    public void QuitGame()
-    {
-        Debug.Log("You quit!");
-        //FindObjectOfType<MainMenu>().Quitgame();
-        Application.Quit();
-        Application.LoadLevel(Application.loadedLevel);
-
 
     }
 
@@ -66,7 +63,6 @@ public class GameManager : MonoBehaviour
             //isPaused = true;
         }
     }
-
 
     public void NextLevel()
     {
