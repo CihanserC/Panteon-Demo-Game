@@ -1,2 +1,0 @@
-# Rise Guys
- Demo project
